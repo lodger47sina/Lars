@@ -1,7 +1,11 @@
 # dstFile = $(patsubst %.c,%,$(srcFile))
 TARGET=lib/libreactor.a
 CXX=g++
-CFLAGS= -g -O2 -Wall -fPIC 
+CFLAGS= -g\
+		-O2\
+		-Wall\
+		-fPIC\
+		-lpthread
 
 SRC=./src
 INC=-I./include
