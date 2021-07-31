@@ -5,7 +5,8 @@ CFLAGS= -g\
 		-O2\
 		-Wall\
 		-fPIC\
-		-lpthread
+		-lpthread\
+		-Wno-deprecated
 
 SRC=./src
 INC=-I./include

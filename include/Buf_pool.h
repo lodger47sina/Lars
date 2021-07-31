@@ -34,6 +34,8 @@ public:
     poll_t m_pool;
     // 当前内存池总体大小
     uint64_t m_total_mem;
+    // 保护pool map增删改查的锁
+    static pthread_mutex_t m_mutex;
 public:
     // 初始化单例对象
     static void init()
@@ -46,10 +48,11 @@ public:
         return m_instance;
     }
     // 从内存池中申请一块内存
-    io_buf* allc_buf(int N);
-    io_buf* allc_buf();
+    io_buf* alloc_buf(int N);
+    io_buf* alloc_buf();
 
     // 重置一个io_buf放回pool中
     void revert(io_buf *buffer);
+    void make_io_buf_list(int cap,int num);
 };
 
